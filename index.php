@@ -35,25 +35,22 @@
 				</div>
 			</div>
 
-			<!-- 引入 main -->
-			<?php //include "./front/main.php";?>
-			<!-- 引入 main end -->
-
+			<!-- 透過switch case 修改參數轉換主要頁面 -->
+			<!-- 如果 do 不是規定的參數便帶入 main -->
 			<?php
-			switch ($_GET['do']) {
+			$do=$_GET['do']??'main';
+			switch ($do) {
 				case 'login':
 					include "./front/login.php";
 					break;
-				case 'main':
-					include "./front/main.php";
-					break;
 				case 'news':
 					include "./front/news.php";
-					break;
+					break;						
+				default:
+					include "./front/main.php";					
 			}
-
-
 			?>
+			<!-- 透過switch case 修改參數轉換主要頁面 end-->
 
 			<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
 			<script>
