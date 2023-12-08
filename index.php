@@ -1,4 +1,4 @@
-<?php include_once "./api/db.php";?>
+<?php include_once "./api/db.php"; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,10 +19,12 @@
 			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 		</div>
 	</div>
-	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<a title="" href="./home_files/home.htm">
-			<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div><!--標題-->
+		<?php
+			$title = $Title->find(['sh' => 1]);
+		?>
+		<a title="<?= $title['text']; ?>" href="index.php">
+			<div class="ti" style="background:url(&#39;./img/<?=$title['id'];?>&#39;); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
@@ -31,17 +33,17 @@
 					<span class="t botli">主選單區</span>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 :<?=$Total->find(1)['total'];?></span>
+					<span class="t">進站總人數 :<?= $Total->find(1)['total']; ?></span>
 				</div>
 			</div>
 
 			<!-- 透過判斷檔案是否存在來決定引入的頁面 -->
 			<?php
-			$do=$_GET['do']??'main';
-			$file="./front/{$do}.php";
-			if(file_exists($file)){
+			$do = $_GET['do'] ?? 'main';
+			$file = "./front/{$do}.php";
+			if (file_exists($file)) {
 				include $file;
-			}else{
+			} else {
 				include "./front/main.php";
 			}
 			//透過switch case 修改參數轉換主要頁面
@@ -103,7 +105,7 @@
 		</div>
 		<div style="clear:both;"></div>
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?=$Bottom->find(1)['bottom'];?></span>
+			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
 		</div>
 	</div>
 
