@@ -7,12 +7,13 @@
                     <td  width="45%">頁尾版權資料</td>
                     <td width="55%">
                         <input type="text" name="bottom" value="<?=$Bottom->find(1)['bottom'];?>">
-                        <input type="hidden" name="table" value="bottom">
+                        <input type="hidden" name="table" value="<?=$do;?>">
+
                     </td>
                 </tr>
             </tbody>
         </table>
-        <table style="margin-top:40px; width:70%; ">
+        <table style=" width:70%; margin:auto; margin-top:40px;">
             <tbody>
                 <tr>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>

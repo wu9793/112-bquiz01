@@ -7,12 +7,12 @@
                     <td  width="45%">進佔總人數:</td>
                     <td width="55%">
                         <input type="number" name="total" value="<?=$Total->find(1)['total'];?>">
-                        <input type="hidden" name="table" value="total">
+                        <input type="hidden" name="table" value="<?=$do;?>">
                     </td>
                 </tr>
             </tbody>
         </table>
-        <table style="margin-top:40px; width:70%; ">
+        <table style="width:70%; margin:auto; margin-top:40px;">
             <tbody>
                 <tr>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
