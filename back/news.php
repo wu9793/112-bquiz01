@@ -23,12 +23,12 @@
                 ?>
                     <tr>
                         <td>
-                            <textarea type="text" name="text[<?= $row['id']; ?>]" style="width: 90%;height:60px"><?= $row['text']; ?></textarea>
-                            <input type="hidden" name="table" value="<?= $row['id']; ?>">
+                            <textarea type="text" name="text[]" style="width: 90%;height:60px"><?= $row['text']; ?></textarea>
+                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
 
                         </td>
                         <td>
-                            <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
+                            <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
                         </td>
                         <td>
                             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">

@@ -1,6 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">動態文字廣告管理</p>
-    <form method="post" action="/api/edit_info.php">
+    <form method="post" action="/api/edit.php">
         <table style="width:100%; text-align:center">
             <tbody>
                 <tr class="yel">
@@ -14,8 +14,8 @@
                 ?>
                     <tr>
                         <td>
-                            <input type="text" name="text[<?= $row['id']; ?>]" style="width: 90%;" value="<?= $row['text']; ?>">
-                            <input type="hidden" name="table" value="<?= $row['id']; ?>">
+                            <input type="text" name="text[]" style="width: 90%;" value="<?= $row['text']; ?>">
+                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
 
                         </td>
                         <td>
