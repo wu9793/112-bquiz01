@@ -9,25 +9,54 @@
                     <td width="10%">刪除</td>
                 </tr>
                 <?php
-                $rows = $DB->all();
+                //由DB裡面的count這個function去計算總共有幾筆
+                $total = $DB->count();
+                //以5筆資料為一頁
+                $div = 5;
+                //總共筆數除以一頁5筆，ceil
+                $pages = ceil($total / $div);
+                //現在分頁有p這個變數就顯示哪一頁，如果沒有則顯示第一頁
+                $now = $_GET['p'] ?? 1;
+                $start = ($now - 1) * $div;
+                $rows = $DB->all(" limit $start,$div");
                 foreach ($rows as $row) {
                 ?>
                     <tr>
-                        <td >
-                            <textarea type="text" name="text[<?= $row['id']; ?>]" style="width: 90%;height:60px" ><?= $row['text']; ?></textarea>
+                        <td>
+                            <textarea type="text" name="text[<?= $row['id']; ?>]" style="width: 90%;height:60px"><?= $row['text']; ?></textarea>
                         </td>
-                        <td >
-                            <input type="radio" name="sh" value="<?= $row['id']; ?>"<?=($row['sh']==1)?'checked':'';?>>
+                        <td>
+                            <input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
                         </td>
-                        <td >
+                        <td>
                             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
                     </tr>
+                    
                 <?php
                 }
                 ?>
             </tbody>
         </table>
+        <div class="cent">
+            <?php
+                if($now>1){
+                    $prev=$now-1;
+                    echo "<a href='?do=news&p=$prev'> < </a>";
+                }
+
+                for ($i = 1; $i <= $pages; $i++) {
+                    $fontsize = ($now == $i) ? '24px' : '16px';
+                    echo "<a href='?do=news&p=$i' style='font-size:$fontsize'> $i </a>";
+                }
+
+                if($now<$pages){
+                    $next=$now+1;
+                    echo "<a href='?do=news&p=$next'> > </a>";
+                }
+
+            ?>
+        </div>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
