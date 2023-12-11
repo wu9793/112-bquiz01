@@ -12,18 +12,18 @@
                 $rows = $DB->all();
                 foreach ($rows as $row) {
                 ?>
-                <tr>
-                    <td>
-                        <input type="text" name="acc[]" style="width: 90%;" value="<?= $row['text']; ?>">
+                    <tr>
+                        <td>
+                            <input type="text" name="acc[]" style="width: 90%;" value="<?= $row['text']; ?>">
+                        </td>
+                        <td>
+                            <input type="password" name="pw[]" value="<?= $row['pw']; ?>">
+                        </td>
+                        <td>
+                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                        </td>
                         <input type="hidden" name="id[]" value="<?= $row['text']; ?>">
-                    </td>
-                    <td>
-                        <input type="password" name="pw[]" value="<?= $row['id']; ?>">
-                    </td>
-                    <td>
-                        <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
-                    </td>
-                </tr>
+                    </tr>
                 <?php
                 }
                 ?>
@@ -32,7 +32,7 @@
         <table style=" width:100%; margin:auto; margin-top:40px;">
             <tbody>
                 <tr>
-                <input type="hidden" name="table" value="<?= $do; ?>">
+                    <input type="hidden" name="table" value="<?= $do; ?>">
                     <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增管理者帳號"></td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>

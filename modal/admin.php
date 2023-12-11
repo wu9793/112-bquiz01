@@ -4,15 +4,15 @@
 <table>
     <tr>
         <td>帳號:</td>
-        <td><input type="text" name="text" id=""></td>
+        <td><input type="text" name="acc" id=""></td>
     </tr>
     <tr>
         <td>密碼:</td>
-        <td><input type="text" name="text" id=""></td>
+        <td><input type="password" name="pw" id=""></td>
     </tr>
     <tr>
         <td>確認密碼:</td>
-        <td><input type="text" name="text" id=""></td>
+        <td><input type="password" name="pw2" id=""></td>
     </tr>
 </table>
 <div>
