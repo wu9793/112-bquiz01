@@ -152,10 +152,19 @@ function dd($array)
 function to($url){
     header("location:$url");
 }
+
 $Title=new DB('titles');
 $Total=new DB('total');
 $Bottom=new DB('bottom');
 $Ad=new DB('ad');
 $Mvim=new DB('mvim');
+$Image=new DB('image');
+$News=new DB('news');
+
+
+if(isset($_GET['do'])){
+    $DB=${ucfirst($_GET['do'])};
+
+}
 
 ?>
