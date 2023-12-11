@@ -1,6 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">選單管理</p>
-    <form method="post" action="/api/edit_info.php">
+    <form method="post" action="/api/edit.php">
         <table style="width:100%; text-align:center">
             <tbody>
                 <tr class="yel">
@@ -22,14 +22,18 @@
                         <td>
                             <input type="text" name="href[]" value="<?= $row['href']; ?>">
                         </td>
+                        <td></td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
                         </td>
                         <td>
                             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
-                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                        <td>
+                            <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')">
+                    </td>
                     </tr>
+                    <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                 <?php
                 }
                 ?>

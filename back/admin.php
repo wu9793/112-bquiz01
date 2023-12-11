@@ -14,7 +14,7 @@
                 ?>
                     <tr>
                         <td>
-                            <input type="text" name="acc[]" style="width: 90%;" value="<?= $row['text']; ?>">
+                            <input type="text" name="acc[]" style="width: 90%;" value="<?= $row['acc']; ?>">
                         </td>
                         <td>
                             <input type="password" name="pw[]" value="<?= $row['pw']; ?>">
@@ -22,7 +22,7 @@
                         <td>
                             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
-                        <input type="hidden" name="id[]" value="<?= $row['text']; ?>">
+                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                     </tr>
                 <?php
                 }
