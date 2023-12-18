@@ -82,9 +82,22 @@
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
+					<?php
+					$imgs=$Image->all(['sh'=>1]);
+					foreach($imgs as $idx => $img){
+					?>
+						<div id="ssaa<?=$idx;?>" class="im cent">
+							<img src="./img/<?=$img['img'];?>" style="width: 150px; height:103px; border:3px solid orange;margin:3px;">
+						</div>
+					<?php
+					}
+					?>
+					<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
+					
 					<script>
-						var nowpage = 0,
-							num = 0;
+						var nowpage = 1,
+							num = <?=$Image->count(['sh'=>1]);?>;
 
 						function pp(x) {
 							var s, t;
@@ -102,6 +115,7 @@
 						}
 						pp(1)
 					</script>
+
 				</div>
 			</div>
 		</div>
